@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Other stuff? 
+.vscode/**
+.history
+lib/*
+.DS_Store
