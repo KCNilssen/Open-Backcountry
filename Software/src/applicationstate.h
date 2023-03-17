@@ -1,19 +1,19 @@
 #ifndef APPLICATION_STATE_HPP
 #define APPLICATION_STATE_HPP
 
-#include "systemState.h"
+#include "systemstate.h"
 
 
-class PlayState : public SystemState
+class ApplicationState : public SystemState
 {
 protected:
 
 private:
 
 public:
-    virtual void draw(const float dt) {};
-    virtual void update(const float dt) {};
-    virtual void handleInput() {};
+    virtual void draw(const float dt);
+    virtual void update(const float dt);
+    virtual void handleInput();
 
 };
 
