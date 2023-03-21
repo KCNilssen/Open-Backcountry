@@ -5,9 +5,18 @@
 #include <string>
 
 #include "../menustate.h" 
+
 #include "messagesmenu.h"
+#include "weathermenu.h"
 #include "gpsmenu.h"
-#include "secondmenu.h"
+#include "mapsmenu.h"
+#include "loramenu.h"
+#include "sensorsmenu.h"
+#include "avalanchemenu.h"
+#include "loggingmenu.h"
+#include "settingsmenu.h"
+
+// #include "secondmenu.h"
 
 class MainMenu : public MenuState
 {
@@ -38,7 +47,7 @@ MainMenu::MainMenu(System* system)
     menuOptions.push_back((struct MenuOption){"Sensors  ", "path/to/menuoption6_image"});
     menuOptions.push_back((struct MenuOption){"Avalanche", "path/to/menuoption7_image"});
     menuOptions.push_back((struct MenuOption){"Logging  ", "path/to/menuoption8_image"});
-    
+
     menuOptions.push_back((struct MenuOption){"Settings ", "path/to/menuoption9_image"});
 
     this->system = system;
@@ -111,12 +120,30 @@ void MainMenu::handleInput()
                 case 0: // Messages menu selected. Push MessagesMenu to system state vector
                     system->pushState(new MessagesMenu(system)); 
                     break;
-                case 2: // Messages menu selected. Push MessagesMenu to system state vector
+                case 1: // Weather menu selected. Push WeatherMenu to system state vector
+                    system->pushState(new WeatherMenu(system)); 
+                    break;
+                case 2: // GPS menu selected. Push GPSMenu to system state vector
                     system->pushState(new GpsMenu(system)); 
                     break;
-                default:
-                    system->pushState(new SecondMenu(system, menuPosition));
+                case 3: // Maps menu selected. Push MapsMenu to system state vector
+                    system->pushState(new MapsMenu(system)); 
                     break;
+                case 4: // Lora menu selected. Push LoraMenu to system state vector
+                    system->pushState(new LoraMenu(system)); 
+                    break;
+                case 5: // Sensors menu selected. Push SensorsMenu to system state vector
+                    system->pushState(new SensorsMenu(system)); 
+                    break;
+                case 6: // Avalanche menu selected. Push AvalancheMenu to system state vector
+                    system->pushState(new AvalancheMenu(system)); 
+                    break;
+                case 7: // Logging menu selected. Push LoggingMenu to system state vector
+                    system->pushState(new LoggingMenu(system)); 
+                    break;
+                case 8: // Settings menu selected. Push SettingsMenu to system state vector
+                    system->pushState(new SettingsMenu(system)); 
+                    break;                
             }
             break;
         case 'q':   // quit

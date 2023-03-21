@@ -1,33 +1,38 @@
-#ifndef GPS_MENU_STATE_HPP
-#define GPS_MENU_STATE_HPP
+#ifndef LORA_MENU_STATE_HPP
+#define LORA_MENU_STATE_HPP
 
 #include <iostream>
 #include <string>
 
 #include "../menustate.h"
 
-class GpsMenu : public MenuState
+class LoraMenu : public MenuState
 {
-    void loadapplication();
+    // void loadapplication();
 
 public:
-    GpsMenu(System* SYSTEM_HPP);
+    LoraMenu(System* system);
 
     virtual void draw(const float dt);
     virtual void update(const float dt);
     virtual void handleInput();
 };
 
-GpsMenu::GpsMenu(System* system)
+LoraMenu::LoraMenu(System* system)
 {
     menuPosition = 0;
     NUM_OPTIONS = 8;
     OPTIONS_PER_ROW = 4;
     
-    menuOptions.push_back((struct MenuOption){"Live Data", "path/to/menuoption1_image"});
-    menuOptions.push_back((struct MenuOption){"Satellites", "path/to/menuoption2_image"});
+    menuOptions.push_back((struct MenuOption){"Option1", "path/to/menuoption1_image"});
+    menuOptions.push_back((struct MenuOption){"Option2", "path/to/menuoption2_image"});
     menuOptions.push_back((struct MenuOption){"Option3", "path/to/menuoption3_image"});
-    menuOptions.push_back((struct MenuOption){"Settings", "path/to/menuoption4_image"});    // This will add gps settings menu to stack and jump there
+    menuOptions.push_back((struct MenuOption){"Option4", "path/to/menuoption4_image"});
+
+    menuOptions.push_back((struct MenuOption){"Option5", "path/to/menuoption5_image"});
+    menuOptions.push_back((struct MenuOption){"Option6", "path/to/menuoption6_image"});
+    menuOptions.push_back((struct MenuOption){"Option7", "path/to/menuoption7_image"});
+    menuOptions.push_back((struct MenuOption){"Option8", "path/to/menuoption8_image"});
 
     this->system = system;
 
@@ -35,10 +40,10 @@ GpsMenu::GpsMenu(System* system)
     draw(0.0);
 }
 
-void GpsMenu::draw(const float dt)
+void LoraMenu::draw(const float dt)
 {
 
-    std::cout << "\n\n\n\n" << "   " << "GPS Menue \n" << std::endl;
+    std::cout << "\n\n\n\n" << "   " << "Lora Menue \n" << std::endl;
 
     for(unsigned int i = 0; i < menuOptions.size(); i++)
     {
@@ -58,9 +63,9 @@ void GpsMenu::draw(const float dt)
     
 }
 
-void GpsMenu::update(const float dt) {}
+void LoraMenu::update(const float dt) {}
 
-void GpsMenu::handleInput()
+void LoraMenu::handleInput()
 {
     char input;
     std::cout << "Enter input: "; // Type a number and press enter
@@ -102,6 +107,6 @@ void GpsMenu::handleInput()
 
 }
 
-void GpsMenu::loadapplication() {}
+// void SecondMenu::loadapplication() {}
 
-#endif /* GPS_MENU_STATE_HPP */
+#endif /* LORA_MENU_STATE_HPP */
