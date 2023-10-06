@@ -17,4 +17,4 @@ public:
 
 };
 
-#endif /* GAME_STATE_EDITOR_HPP */
+#endif /* APPLICATION_STATE_EDITOR_HPP */

@@ -8,7 +8,7 @@ struct MenuOption {
     std::string optionImagePath;
 };
 
-class MenuState : public SystemState  //make GameState functions public to this class so we can derive it's functions.
+class MenuState : public SystemState  //make MenuState functions public to this class so we can derive it's functions.
 {
 
 protected:
@@ -25,4 +25,4 @@ public:
     virtual void handleInput();
 };
 
-#endif /* GAME_STATE_START_HPP */
+#endif /* Menu_STATE_START_HPP */
